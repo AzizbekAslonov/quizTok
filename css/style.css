@@ -1,0 +1,198 @@
+#scorebtn{
+   background: linear-gradient(90deg, rgb(255,247,9) 0%, rgb(240, 221,6) 100%);
+   color: #000;
+}
+#scorebtn:hover{
+   box-shadow: 0 0.4rem 1.4rem 0 rgba(255,255,0,0.5);
+}
+
+.fa-crown,
+.fa-info,
+.fa-play{font-size: 2.5rem}
+
+#home a{
+   margin-bottom: 17px;
+}
+
+#time{
+   margin-bottom: 30px;
+}
+
+.info{
+   font-size: 30px;
+   color: #fff;
+   margin-bottom: 10px;
+}
+
+
+/* End Page Css */
+.form-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 35px;
+}
+#end-text{
+   font-size: 40px;
+   color: #fff;
+}
+.fa-home{
+   margin-left: 1rem;
+   font-size: 2rem;
+   color: #000000;
+}
+#finalScore{
+   margin-bottom: 30px;
+}
+
+/* Scores part  */
+
+.scores-block{
+   padding-top: 40px;
+}
+
+#scoresList{
+   margin-bottom: 35px;
+}
+
+#scoresList .scores{
+   margin-bottom: 50px;
+}
+.science-name{
+   color: rgb(28, 177, 8);
+   font-weight: 900;
+   font-size: 45px;
+   margin-bottom: 10px;
+}
+
+#hightScoresList{
+   margin-bottom: 2.5rem;
+   list-style: none;
+}
+#hightScoresList .fa-home{
+   color: #fff;
+}
+.hight-score{
+   font-size: 40px;
+   color: #fff;
+}
+.btn-info{
+   background: #0b354d;
+}
+.scorebtn i{
+   color: #fff;
+}
+
+/* <Rules Css part> ================================================================================================================================ */
+
+.rules {
+   color: #fff;
+   padding: 30px 0;
+}
+.rules-block {
+   display: flex;
+   align-items: center;
+   margin-bottom: 60px;
+   padding: 10px;
+}
+.rules-block:last-child{
+   margin: 0;
+}
+.rules-block:nth-child(even){
+   /* border: 3px solid rgba(255, 0, 0, 1); */
+   box-shadow: 0 0 20px red,0 0 20px red;
+}
+.rules-block:nth-child(odd){
+   /* border: 3px solid rgb(65, 187, 96); */
+   box-shadow: 0 0 20px green,0 0 20px green;
+}
+.rules-icon {
+   margin: 0 10px 0 0;
+   padding: 17px;
+   border: 2px dashed #fff;
+}
+.rules-icon i{
+   font-size: 2rem;
+   color: rgb(0, 255, 255);
+}
+.rules-text {
+   font-size: 1.4rem;
+}
+
+.author{
+  margin-top: 15px;
+   border: 1px dashed #fff;
+}
+
+.author a{
+   padding: 15px;
+   color: #ffffff;
+   display: inline-block;
+   text-decoration: none;
+   margin: 0 !important;
+}
+/* </author> ============================================================================================================================================ */
+
+/* <Science part> ========================================================================================================================================== */
+
+
+/* </Science part> ========================================================================================================================================== */
+
+
+@media(max-width: 992px) {
+   .container {
+       max-width: 800px;
+   }
+
+   h1 {
+       font-size: 4.4rem;
+   }
+   h2 {
+       font-size: 3.2rem;
+   }
+   .fa-crown,
+   .fa-info,
+   .fa-play {
+       font-size: 1.7rem
+   }
+   .rules-text {
+      font-size: 1.2rem;
+   }
+}
+
+@media(max-width: 576px) {
+   .container {
+       max-width: none;
+   }
+   .hight-score {
+       font-size: 20px;
+   }
+
+   .rules-block {
+       flex-direction: column;
+   }
+   .rules-block .rules-icon {
+       margin: 0 0 5px 0;
+   }
+   #finalScore {
+       font-size: 2.2rem;
+   }
+   .science-name {
+       font-size: 1.5rem;
+   }
+   .author a {
+       padding: 8px;
+   }
+   #end-text{
+      font-size: 28px;
+   }
+}
+
+@media(max-width: 352px) {
+   .end-part a,
+   .end-part button {
+       display: block;
+       width: 100%;
+   }
+}

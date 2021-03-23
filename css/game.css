@@ -1,0 +1,170 @@
+*{font-family: 'Nova Square', cursive;}
+body{color: #fff;}
+.hud-prefix {
+}
+.hud-main-text {
+}
+
+.choice-container {
+   display: flex;
+   margin-bottom: 0.8rem;
+   border-radius: 5px;
+   align-items: center;
+   padding: 1rem;
+   margin-bottom: 23px;
+}
+
+.choice-container:hover{
+   transform: scale(1.02);
+}
+
+.choice-container:nth-child(even){
+   background: rgb(30, 71, 160);
+}
+
+.choice-container:nth-child(odd){
+   background: rgb(0, 17, 94);
+}
+
+.choice-container:nth-child(odd):hover{
+   box-shadow: 0 0.4rem 1.4rem 0 rgb(57, 57, 97);
+}
+
+.correct{
+   background: green !important;
+}
+
+.incorrect{
+   background:linear-gradient(32deg, rgba(230, 29, 1) 0%, rgba(224,11,11) 100%) !important;
+}
+
+.choice-prefix {
+   color: yellow;
+   font-weight: bold;
+   padding: 0 2.5rem 0 0;
+   font-size: 2.7rem;
+}
+
+.choice-text {
+   font-size: 20px;
+   font-weight: 600;
+   letter-spacing: 1.4px;
+   padding: 0 0.80rem;
+   font-family: 'Quicksand', sans-serif;
+}
+#question{
+   margin-bottom: 20px;
+   font-size: 45px;
+}
+
+/* Heads up display */
+
+#hud{
+   display: flex;
+   justify-content: space-between;
+}
+
+#progressText{
+}
+
+.proggres{
+   display: inline-block;
+   border-radius: 50px;
+   overflow: hidden;
+}
+#progressBar{
+   width: 20rem;
+   height: 3rem;
+   border: 0.21rem solid rgb(11,223,36);
+   border-radius: 50px;
+}
+#proggressBarFull{
+   transition: 0.5s;
+   height: 300%;
+   width: 0%;
+   background: rgb(11,223,36);
+}
+.hud-prefix {
+   font-size: 40px;
+   letter-spacing: 1.7px;
+}
+
+.hud_score{
+
+} 
+
+.hud_time{
+
+}
+
+.hud-main-text {
+}
+
+@media(max-width: 992px){
+   .choice-prefix{
+      font-size: 1.6rem;
+      padding: 0 0 10px 0;
+   }
+   .choice-text {
+      font-size: 18px;
+   }
+   #progressBar{
+      width: 17rem;
+      height: 2.5rem;
+   }
+   #question{
+      font-size: 35px;
+   }
+   .hud-prefix {
+      font-size: 27px;
+
+   }
+}
+@media(max-width: 576px){
+   .choice-container{
+      display: block;
+      text-align: center;
+   }
+   .choice-text {
+      padding: 0;
+   }
+
+   .hud-prefix {
+      font-size: 24px;
+   }
+
+   #hud{
+      flex-wrap: wrap;
+   }
+
+   .hud_prog{
+      flex: 0 0 100%;
+      margin-bottom: 20px;
+   }
+
+   .hud_score{
+      flex: 0 0 50%
+   } 
+   
+   .hud_time{
+     flex: 0 0 50% 
+   }
+
+   .hud-item {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+   }
+
+   #progressText{
+      margin-bottom: 15px;
+   }
+
+   .hud-main-text {
+      margin: 0;
+   }
+
+   #question{
+      font-size: 25px;
+   }
+}

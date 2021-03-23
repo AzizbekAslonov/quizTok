@@ -1,0 +1,123 @@
+.animation_1 {
+   position: absolute;
+   top: 70%;
+   left: 9%;
+}
+
+.animation__icon {
+   color: rgb(255, 255, 255);
+   font-size: 100px;
+   transition: 0.4s;
+   transform: scale(0.5);
+}
+
+.rotate{
+   animation: rotate 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes rotate{
+   0%{
+      transform: scale(1);
+   }
+}
+
+/* SECOND ANIMATION */
+.animation_2{
+   position: absolute;
+   top: 10%;
+   right: 10%;
+}
+
+.animation__icon_2 {
+   color: #00e1ff;
+   animation-delay: 0.3s;
+}
+
+/* NEXT :) */
+.animation_3 {
+   position: absolute;
+   top: 10%;
+   left: 10%;
+}
+
+.animation__icon_3 {
+   animation-delay: 0.6s;
+   color: #82c91e;
+}
+
+.animation_4{
+   position: absolute;
+   top: 70%;
+   right: 10%;
+}
+
+.animation__icon_4 {
+   color: #923eff;
+   animation-delay: 0.9s;
+}
+
+
+
+/* MEDIA */
+@media(max-width: 1100px){
+   .animation_1{
+      left: 50px;
+   }
+
+   .animation_2{
+      right: 3%;
+   }
+
+   .animation_3{
+      left: 50px;
+   }
+
+   .animation_4{
+      right: 50px;
+   }
+}
+
+@media(max-width: 992px){
+   .animation__icon{
+      font-size: 70px;
+   }
+}
+@media(max-width: 768px){
+   .animation_1 {
+      top: 85%;
+      left: 7px;
+   }
+
+   .animation__icon{
+      font-size: 45px;
+   }
+
+   .animation_2{
+      top: 10px;
+   }
+   
+   .animation_3{
+      top: 10px;
+      left: 3%;
+   }
+   
+   .animation_4{
+      top: 85%;
+      right: 7px;
+   }
+}
+@media(max-width: 518px){
+   .animation_1 {
+      top: 90%;
+      left: 50%;
+      transform: translate(-50%, 0);
+   }
+
+   .animation_4{
+      display: none;
+   }
+}
+
+
+
+
