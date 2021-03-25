@@ -2,32 +2,58 @@
 :root {
     background-color: rgb(29, 26, 26);
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "Nova Square", cursive;
 }
+
 ul {
     list-style: none;
 }
+
 h1 {
     font-size: 50px;
     color: #fff;
     margin: 0 0 5rem 0;
 }
+
 h2 {
     font-size: 45px;
     margin-bottom: 4rem;
+}
+
+.author{
+    margin-top: 15px;
+    border: 1px dashed #fff;
+}
+
+.author a{
+    padding: 10px;
+    color: #ffffff;
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 !important;
 }
 
 .mt{
     margin-top: 20px;
 }
 
+.mb{
+    margin-bottom: 20px;
+}
+
+.mb-2{
+    margin-bottom: 40px;
+}
+
 .text-white{
     color: #fff;
 }
+
 
 .container {
     padding: 10px 17px;
@@ -36,7 +62,7 @@ h2 {
 }
 
 .fullscr {
-    height: 97vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,20 +74,25 @@ h2 {
     align-items: center;
     justify-content: space-between;
 }
+
 .flex-column {
     display: flex;
     flex-direction: column;
 }
+
 .flex-center {
     justify-content: center;
     align-items: center;
 }
+
 .text-center {
     text-align: center;
 }
+
 .hidden {
     display: none;
 }
+
 .btn {
     outline: none;
     border: transparent;
@@ -76,11 +107,13 @@ h2 {
     border-radius: 5px;
     transition: 0.2s !important;
 }
+
 .btn[disabled]:hover {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
 }
+
 .scale:hover{
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
@@ -93,7 +126,7 @@ h2 {
     margin-top: 60px;
 }
 
- input{
+input{
     margin-bottom: 3rem;
     padding: 1.5rem;
     font-size: 1.8rem;
@@ -101,43 +134,53 @@ h2 {
     outline: none;
     transition: .4s;
     box-shadow: 0 0 15px rgba(86,185,235,0.8);
- }
- input:focus{
-    box-shadow: 0 0 35px rgba(86,185,235,0.8);
- }
+}
 
- @media(max-width: 992px){
+input:focus{
+    box-shadow: 0 0 35px rgba(86,185,235,0.8);
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+@media(max-width: 992px){
     .btn {
         font-size: 1.6rem;
         padding: 1.4rem 0;
         width: 23rem;
     }
- }
+    h2 {
+        font-size: 30px;
+    }
+}
 
 
- @media(max-width: 576px){
+@media(max-width: 576px){
+    .container {
+        max-width: none;
+    }
+
     .btn {
         font-size: 1.4rem;
         padding: 1.2rem 0;
         width: 17rem;
     }
- }
 
-
- @media(max-width: 576px){
     h1 {
         font-size: 30px;
     }
-    #home h1 {
-        margin-bottom: 3rem;
-    }
+
     h2 {
-        font-size: 30px;
+        font-size: 22px;
     }
+
     input {
         width: 100%;
         display: block;
         padding: 1rem;
         font-size: 1.5rem;
     }
- }
+}

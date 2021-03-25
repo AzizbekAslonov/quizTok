@@ -1,8 +1,9 @@
 *{font-family: 'Nova Square', cursive;}
-body{color: #fff;}
-.hud-prefix {
+body{
+   color: #fff;
 }
-.hud-main-text {
+
+.hud-prefix {
 }
 
 .choice-container {
@@ -52,10 +53,6 @@ body{color: #fff;}
    padding: 0 0.80rem;
    font-family: 'Quicksand', sans-serif;
 }
-#question{
-   margin-bottom: 20px;
-   font-size: 45px;
-}
 
 /* Heads up display */
 
@@ -97,9 +94,6 @@ body{color: #fff;}
 
 }
 
-.hud-main-text {
-}
-
 @media(max-width: 992px){
    .choice-prefix{
       font-size: 1.6rem;
@@ -111,9 +105,6 @@ body{color: #fff;}
    #progressBar{
       width: 17rem;
       height: 2.5rem;
-   }
-   #question{
-      font-size: 35px;
    }
    .hud-prefix {
       font-size: 27px;
@@ -130,7 +121,7 @@ body{color: #fff;}
    }
 
    .hud-prefix {
-      font-size: 24px;
+      font-size: 20px;
    }
 
    #hud{
@@ -154,17 +145,5 @@ body{color: #fff;}
       display: flex;
       align-items: center;
       flex-direction: column;
-   }
-
-   #progressText{
-      margin-bottom: 15px;
-   }
-
-   .hud-main-text {
-      margin: 0;
-   }
-
-   #question{
-      font-size: 25px;
    }
 }

@@ -49,7 +49,11 @@
 /* Scores part  */
 
 .scores-block{
-   padding-top: 40px;
+   padding: 20px 15px;
+}
+
+.allscores{
+   flex: 1 1 auto;
 }
 
 #scoresList{
@@ -120,18 +124,6 @@
    font-size: 1.4rem;
 }
 
-.author{
-  margin-top: 15px;
-   border: 1px dashed #fff;
-}
-
-.author a{
-   padding: 15px;
-   color: #ffffff;
-   display: inline-block;
-   text-decoration: none;
-   margin: 0 !important;
-}
 /* </author> ============================================================================================================================================ */
 
 /* <Science part> ========================================================================================================================================== */
@@ -144,13 +136,6 @@
    .container {
        max-width: 800px;
    }
-
-   h1 {
-       font-size: 4.4rem;
-   }
-   h2 {
-       font-size: 3.2rem;
-   }
    .fa-crown,
    .fa-info,
    .fa-play {
@@ -159,12 +144,12 @@
    .rules-text {
       font-size: 1.2rem;
    }
+   .science-name{
+      font-size: 30px;
+   }
 }
 
 @media(max-width: 576px) {
-   .container {
-       max-width: none;
-   }
    .hight-score {
        font-size: 20px;
    }
@@ -172,18 +157,19 @@
    .rules-block {
        flex-direction: column;
    }
+
    .rules-block .rules-icon {
        margin: 0 0 5px 0;
    }
+
    #finalScore {
        font-size: 2.2rem;
    }
+
    .science-name {
-       font-size: 1.5rem;
+       font-size: 20px;
    }
-   .author a {
-       padding: 8px;
-   }
+
    #end-text{
       font-size: 28px;
    }
