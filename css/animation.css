@@ -108,9 +108,7 @@
 }
 @media(max-width: 518px){
    .animation_1 {
-      top: 90%;
-      left: 50%;
-      transform: translate(-50%, 0);
+      display: none;
    }
 
    .animation_4{

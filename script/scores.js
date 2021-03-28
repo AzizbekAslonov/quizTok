@@ -23,22 +23,21 @@ console.log(SCIENCES);
 function createHtmlForScience(item, key) {
 
    if (item.length > 0) {
-      const PARENTDIV = document.createElement('div');
-      PARENTDIV.classList.add('scores');
+      const PARENTDIV = createDomEl('div', ['scores'], '')
 
-      let header = document.createElement('div');
-      header.classList.add('science-name');
-      header.innerHTML = item[0].science;
+      let header = createDomEl('div', ['science-name'], item[0].science)
 
       PARENTDIV.appendChild(header)
 
       item.forEach((elem, index) => {
-         let span = document.createElement('span')
+         let span_1 = createDomEl('span', ['p-2'], `${index + 1}) ${elem.name} : ${elem.score}`)
+         let span_2 = createDomEl('span', ['p-2'], `${elem.time}s`)
 
-         let content = createDomEl('div', ['hight-score', 'd-flex'], `${index + 1}) ${elem.name} : ${elem.score}`)
+         let content = createDomEl('div', ['hight-score', 'd-flex'], '')
 
-         span.innerHTML = elem.time + 's';
-         content.appendChild(span)
+         // Appends
+         content.appendChild(span_1)
+         content.appendChild(span_2)
          PARENTDIV.appendChild(content)
       })
 
