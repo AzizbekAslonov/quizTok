@@ -1,12 +1,24 @@
-let buttons = document.querySelectorAll('.science_btn')
+const btnCollection = [
+   { data: 'Informatika', icon: 'fas fa-laptop-code', classes: 'btn scale btn-primary' },
+   { data: 'Matematika', icon: 'fas fa-calculator', classes: 'btn scale btn-secondary' },
+]
 
-for (let i = 0; i < buttons.length; i++) {
-   const btn = buttons[i];
+let buttons = document.querySelector('.buttons');
 
-   btn.addEventListener('click', () => {
-      let data = btn.dataset['science'];
+btnCollection.forEach(btn => {
+   const buttonEl = DOMElement({
+      tag: 'a',
+      value: btn.data + ' ',
+      classes: btn.classes,
+      attributes: ['data-science', btn.data],
+      children: DOMElement({ tag: 'i', classes: btn.icon })
+   })
 
-      localStorage.setItem('science', data);
+   buttonEl.addEventListener('click', () => {
+      localStorage.setItem('science', btn.data);
       location.assign('game.html');
    })
-}
+
+   buttons.insertAdjacentElement('beforeend', buttonEl)
+
+})

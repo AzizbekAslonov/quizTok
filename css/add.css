@@ -1,0 +1,80 @@
+input{
+   border: none;
+   outline: none;
+   color: #fff;
+   padding: 10px;
+   background-color: rgb(36, 32, 32);
+   border-bottom: 2.5px solid rgb(58, 58, 58);
+   transition: background-color 0.3s;
+   transition: 0.3s;
+}
+
+input._error{
+   box-shadow: 0 0 3px rgb(250, 47, 47);
+   border-bottom: 2.5px solid rgb(250, 47, 47);
+}
+
+input._success{
+   box-shadow: 0 0 3px rgb(70, 248, 64);
+}
+
+input:focus{
+   border-bottom: 2.5px solid #fff;
+}
+
+textarea{
+
+}
+
+label{
+   color: #fff;
+}
+
+.input-container{
+   border-radius: 10px;
+   border: 1px dashed rgba(255, 255, 255, 0.096);
+   margin: 0 0 20px 0;
+   padding: 10px 15px;
+}
+
+.input-container._error{
+   box-shadow: 0 0 3px rgb(250, 47, 47);
+}
+
+.input-container label{
+   display: flex;
+   align-items: center;
+   margin: 0 0 10px 0;
+}
+
+.input-container label span{
+   flex: 0 0 30%;
+   margin: 0 0 10px 0;
+}
+.input-container label input{
+   flex: 0 0 70%;
+}
+
+.answers__item{
+   margin: 0 0 20px 0;
+}
+
+.answers__item input[type="radio"]{
+   margin: 0 10px 0 0;
+}
+
+@media(max-width: 768px){
+   input[type="text"],
+   textarea{
+      width: 100%;
+   }
+   .input-container label{
+      flex-direction: column;
+      margin: 0 0 30px 0;
+   }
+   .answers__item{
+      display: flex;
+      align-items: center;
+   }
+
+}
