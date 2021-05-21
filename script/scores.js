@@ -1,15 +1,26 @@
-
 const scoresList = document.querySelector('#scoresList')
-const LOCAL_SCORES = JSON.parse(localStorage.getItem('hightScores')) || []
+const LOCAL_SCORES = JSON.parse(localStorage.getItem('hightScores') || '[]')
 
-const SCIENCES = {
-   Informatika: [],
-   Matematika: [],
-}
+const SCIENCES = {}
 
 LOCAL_SCORES.forEach(element => {
-   if (element.science === 'Informatika') SCIENCES.Informatika.push(element)
-   else if (element.science === 'Matematika') SCIENCES.Matematika.push(element)
+   const keys = Object.keys(SCIENCES)
+   if (keys.length > 0) {
+      let isAdd = true
+      keys.forEach(scienceName => {
+         if (scienceName === element.science) {
+            SCIENCES[scienceName].push(element)
+            isAdd = false
+         }
+      })
+
+      if (isAdd) {
+         SCIENCES[element.science] = [element]
+      }
+
+   } else {
+      SCIENCES[element.science] = [element]
+   }
 })
 
 for (const key in SCIENCES) {
@@ -18,7 +29,6 @@ for (const key in SCIENCES) {
       scoresList.appendChild(createHtmlForScience(eachArray, key))
    }
 }
-console.log(SCIENCES);
 
 function createHtmlForScience(item, key) {
 

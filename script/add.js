@@ -26,10 +26,12 @@ function btnHandler() {
          if (indexTextFields === textFields.length && accessToNext) {
             this.remove()
 
-            const goBtn = DOMElement({ tag: 'button', value: `Hammasi to'g'rimi ?`, classes: `btn btn-sm btn-primary scale` })
+            const goBtn = DOMElement({ tag: 'button', value: `Hammasi to'g'rimi ?`, classes: `btn btn-sm btn-secondary scale` })
             goBtn.addEventListener('click', () => {
-
                const data = getAllInformation()
+
+               localStorage.setItem('myScience', JSON.stringify(data))
+               location.assign('science.html')
 
             }, { once: true })
             document.querySelector('#buttons').prepend(goBtn)
@@ -43,7 +45,8 @@ btnHandler()
 function renderTextFields(inp) {
    const inputEl = DOMElement({
       tag: inp.tag,
-      attributes: ['name', inp.type,
+      attributes: [
+         'name', inp.type,
          'id', inp.name,
          'type', 'text',
          'autocomplete', 'off',
@@ -133,18 +136,23 @@ function getAllInformation() {
    const textAndRadForms = document.querySelectorAll('form.questionContainer')
 
    const data = {
-      scienceName: textForms.scienceName.value,
+      name: textForms.scienceName.value,
       questions: []
    }
 
-   textAndRadForms.forEach((form, index) => {
-      data.questions.push(new FormData(form))
+   textAndRadForms.forEach(form => {
+      const formData = new FormData(form)
+      const myValues = {}
 
-      console.group('Form Data')
-      console.log(...data.questions[index]);
-      console.groupEnd()
+      for (let [key, value] of formData.entries()) {
+         if (key.includes('answer_')) {
+            myValues["answer"] = value
+         } else {
+            myValues[key] = value
+         }
+      }
+
+      data.questions.push(myValues)
    })
-
-
-
+   return data
 }

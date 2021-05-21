@@ -1,12 +1,11 @@
 const userName = document.querySelector('#userName'),
    saveScoreBtn = document.querySelector('#saveScoreBtn'),
-   finalScore = document.querySelector('#finalScore'),
-   time = document.querySelector('#time'),
    result = JSON.parse(localStorage.getItem('result')),
    hightScores = JSON.parse(localStorage.getItem('hightScores')) || [];
 
-finalScore.textContent = result.mostRecentScore + ' ball'
-time.textContent = result.time + 's'
+// Show Result (score & time)
+document.querySelector('#finalScore').textContent = result.mostRecentScore + ' ball'
+document.querySelector('#time').textContent = result.time + 's'
 
 userName.addEventListener('keyup', () => {
    saveScoreBtn.disabled = !userName.value

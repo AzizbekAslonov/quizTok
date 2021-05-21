@@ -16,6 +16,10 @@
    margin-bottom: 10px;
 }
 
+.user__sciences{
+   flex: 1 1 auto;
+}
+
 
 /* End Page Css */
 .form-container {
@@ -32,7 +36,7 @@
 .fa-home{
    margin-left: 1rem;
    font-size: 2rem;
-   color: #000000;
+   color: #fff;
 }
 #finalScore{
    margin-bottom: 30px;
@@ -46,6 +50,7 @@
 
 .allscores{
    flex: 1 1 auto;
+   width: 60%;
 }
 
 #scoresList{
@@ -59,7 +64,7 @@
    color: rgb(28, 177, 8);
    font-weight: 900;
    font-size: 45px;
-   margin-bottom: 10px;
+   margin: 0 0 20px 0;
 }
 
 #hightScoresList{
@@ -70,8 +75,9 @@
    color: #fff;
 }
 .hight-score{
-   font-size: 40px;
+   font-size: 25px;
    color: #fff;
+   margin: 0 0 10px 0;
 }
 .btn-info{
    background: #0b354d;
@@ -98,11 +104,11 @@
 }
 .rules-block:nth-child(even){
    /* border: 3px solid rgba(255, 0, 0, 1); */
-   box-shadow: 0 0 20px red,0 0 20px red;
+   box-shadow: 0 0 8px red,0 0 8px red;
 }
 .rules-block:nth-child(odd){
    /* border: 3px solid rgb(65, 187, 96); */
-   box-shadow: 0 0 20px green,0 0 20px green;
+   box-shadow: 0 0 8px green,0 0 8px green;
 }
 .rules-icon {
    margin: 0 10px 0 0;
@@ -140,11 +146,18 @@
    .science-name{
       font-size: 30px;
    }
+   
+}
+
+@media(max-width: 768px){
+   .allscores{
+      width: 90%;
+   }
 }
 
 @media(max-width: 576px) {
    .hight-score {
-       font-size: 20px;
+       font-size: 16px;
    }
 
    .rules-block {

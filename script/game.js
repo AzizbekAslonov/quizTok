@@ -1,6 +1,11 @@
 // Tanlangan fan
 let localScience = localStorage.getItem('science');
 
+const realSciences = [
+   'Informatika',
+   'Matematika'
+]
+
 const ALL_QUESTIONS = [
    {
       name: 'Informatika',
@@ -174,233 +179,30 @@ const ALL_QUESTIONS = [
    },
 ]
 
-class Questions {
+// Zavadskoy
+if (realSciences.includes(localScience)) {
+   const a = new Questions(localScience, {
+      eachAddingScore: 100,
+      variants: ['A', 'B', 'C', 'D']
+   })
 
-   // Main function
-   findQuestion(science) {
-      return ALL_QUESTIONS.find(item => item.name === science) || []
-   }
+   a.startGame()
+} 
 
-   constructor(science, options) {
+// Lichniy
+else {
+   const all_data = JSON.parse(localStorage.getItem('myScience') || '[]')
 
-      this.questions = this.findQuestion(science).questions
-      const { eachAddingScore } = options
-
-
-      this.setDOMElements()
-      this.setProperties(eachAddingScore)
-      this.setHelperProperties()
-      this.setClickHandler()
-
-   }
-
-   // Getters
-   get result() {
-      return {
-         mostRecentScore: this.score,
-         time: this.stopwatcher,
-         science: this.localScience,
-      }
-   }
-
-   setDOMElements() {
-      this.$question = document.querySelector('#question');
-      this.$progressText = document.querySelector('#progressText');
-      this.$scoreText = document.querySelector('#score');
-      this.$stopwatch = document.querySelector('#stopwatch');
-      this.$proggressBarFull = document.querySelector('#proggressBarFull');
-      this.$choices = Array.from(document.querySelectorAll('.choice-text'));
-   }
-
-   setProperties(eachAddingScore) {
-      this.MAX_QUESTIONS = this.questions.length
-      this.SCORE_POINTS = eachAddingScore
-   }
-
-   setHelperProperties() {
-      this.currentQuestion = {}
-      this.availableQuestion = []
-      this.acceptingAnswers = true
-      this.score = 0
-      this.questionCounter = 0
-      this.stopwatcher = 0;
-   }
-
-   setClickHandler() {
-      this.$choices.forEach(choice => {
-         let choicesParent = choice.parentElement
-
-         choicesParent.addEventListener('click', this.clickHandler.bind(this, choice, choicesParent))
-      })
-   }
-
-   clickHandler(choice, choicesParent) {
-      if (!this.acceptingAnswers) return
-
-      this.acceptingAnswers = false
-      const selectedAnswer = choice.dataset['number']
-
-      let classToApply = (selectedAnswer == this.currentQuestion.answer ? 'correct' : 'incorrect')
-
-      if (classToApply === 'correct') {
-         this.incrementScore()
-      }
-      choicesParent.classList.add(classToApply);
-
-      setTimeout(() => {
-         choicesParent.classList.remove(classToApply);
-         this.getNewQuestion()
-      }, 1200)
-   }
-
-   incrementScore() {
-      this.score += this.SCORE_POINTS
-      this.$scoreText.textContent = this.score
-   }
-
-   // Main functions
-   startGame() {
-      this.questionCounter = 0
-      this.score = 0
-      this.availableQuestion = [...this.questions]
-
-      const stopwatchInterval = setInterval(() => {
-         this.stopwatcher += 1;
-         this.$stopwatch.innerHTML = this.stopwatcher;
-      }, 1000)
-
-      this.getNewQuestion(stopwatchInterval)
-   }
-
-   getNewQuestion(stopwatchInterval) {
-      if (this.availableQuestion.length === 0 || this.questionCounter > this.MAX_QUESTIONS) {
-         clearInterval(stopwatchInterval);
-
-         localStorage.setItem('result', JSON.stringify(this.result))
-         return window.location.assign('end.html')
-      }
-
-      this.questionCounter++;
-      this.$progressText.textContent = `Question ${this.questionCounter} of ${this.MAX_QUESTIONS}`
-      this.$proggressBarFull.style.width = `${(this.questionCounter / this.MAX_QUESTIONS) * 100}%`
-
-      const questionIndex = Math.floor(Math.random() * this.availableQuestion.length)
-      this.currentQuestion = this.availableQuestion[questionIndex]
-      this.$question.textContent = this.currentQuestion.question
-
-      this.$choices.forEach(choice => {
-         const number = choice.dataset['number']
-         choice.textContent = this.currentQuestion[number]
+   if (localScience === all_data.name) {
+      ALL_QUESTIONS.push(all_data)
+      const a = new Questions(all_data.name, {
+         eachAddingScore: 100,
+         variants: ['A', 'B', 'C'],
       })
 
-      this.availableQuestion.splice(questionIndex, 1)
-
-      this.acceptingAnswers = true
+      a.startGame()
    }
+
 }
 
-const a = new Questions(localScience, { eachAddingScore: 100 })
-a.startGame()
 
-// =====================================================================================================================
-// =====================================================================================================================
-// =====================================================================================================================
-
-// Dom elementlar
-// let question = document.querySelector('#question'),
-//    progressText = document.querySelector('#progressText'),
-//    scoreText = document.querySelector('#score'),
-//    stopwatch = document.querySelector('#stopwatch'),
-//    proggressBarFull = document.querySelector('#proggressBarFull'),
-//    choices = Array.from(document.querySelectorAll('.choice-text'));
-
-// let questions = ALL_QUESTIONS[localScience] || [];
-
-// // Configuration
-// const SCORE_POINTS = 100
-// const MAX_QUESTIONS = 10
-
-
-// // Helper variables
-// let currentQuestion = {}
-// let availableQuestion = []
-// let acceptingAnswers = true
-// let score = 0
-// let questionCounter = 0
-// let stopwatcher = 0;
-
-
-// startGame = () => {
-//    questionCounter = 0
-//    score = 0
-//    availableQuestion = [...questions]
-
-//    const stopwatchInterval = setInterval(() => {
-//       stopwatcher += 1;
-//       stopwatch.innerHTML = stopwatcher;
-//    }, 1000)
-
-//    getNewQuestion(stopwatchInterval)
-// }
-
-// getNewQuestion = (stopwatchInterval) => {
-//    if (availableQuestion.length === 0 || questionCounter > MAX_QUESTIONS) {
-//       clearInterval(stopwatchInterval);
-//       const result = {
-//          mostRecentScore: score,
-//          time: stopwatcher,
-//          science: localScience,
-//       }
-
-//       localStorage.setItem('result', JSON.stringify(result))
-//       return window.location.assign('end.html')
-//    }
-
-//    questionCounter++;
-//    progressText.textContent = `Question ${questionCounter} of ${MAX_QUESTIONS}`
-//    proggressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`
-
-//    const questionIndex = Math.floor(Math.random() * availableQuestion.length)
-//    currentQuestion = availableQuestion[questionIndex]
-//    question.textContent = currentQuestion.question
-
-//    choices.forEach(choice => {
-//       const number = choice.dataset['number']
-//       choice.textContent = currentQuestion[number]
-//    })
-
-//    availableQuestion.splice(questionIndex, 1)
-
-//    acceptingAnswers = true
-// }
-
-// choices.forEach(choice => {
-//    let choicesParent = choice.parentElement
-
-//    choicesParent.addEventListener('click', () => {
-//       if (!acceptingAnswers) return
-
-//       acceptingAnswers = false
-//       const selectedAnswer = choice.dataset['number']
-
-//       let classToApply = (selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect')
-
-//       if (classToApply === 'correct') {
-//          incrementScore()
-//       }
-//       choicesParent.classList.add(classToApply);
-
-//       setTimeout(() => {
-//          choicesParent.classList.remove(classToApply);
-//          getNewQuestion()
-//       }, 1200)
-//    })
-// })
-
-// function incrementScore() {
-//    score += SCORE_POINTS
-//    scoreText.textContent = score
-// }
-
-
-// startGame()

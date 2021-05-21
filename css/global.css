@@ -51,7 +51,7 @@ h2 {
 }
 
 .p-2{
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 .text-white{
@@ -168,11 +168,6 @@ h2 {
 }
 
 @media(max-width: 992px){
-    .btn {
-        font-size: 1.6rem;
-        padding: 1.4rem 0;
-        width: 23rem;
-    }
     .btn-sm{
         font-size: 20px;
         padding: 1rem 0;
@@ -188,6 +183,12 @@ h2 {
 @media(max-width: 576px){
     .container {
         max-width: none;
+    }
+
+    .btn{
+        font-size: 1.6rem;
+        padding: 1.4rem 0;
+        width: 18rem;
     }
 
     .btn-sm{

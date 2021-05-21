@@ -58,7 +58,6 @@ const setCheckInpContainers = (block) => {
    return errors
 }
 
-
 function checkInputCollectionNotEmpthy(inputs, isOnlyText = false) {
    let isErrorText = false;
    let checkedCount = 0;
@@ -91,7 +90,6 @@ function checkInputCollectionNotEmpthy(inputs, isOnlyText = false) {
    else return { isErrorText, checkedCount }
 
 }
-
 
 function removeClass(collection, classNames) {
    collection.forEach(el => {
@@ -129,4 +127,10 @@ function generateModelHtml(num) {
    }
 
    return res
+}
+
+function checkArrLength(arr = [], min, fn_success, fn_error) {
+   if (arr.length > min) {
+      fn_success()
+   } else fn_error()
 }
