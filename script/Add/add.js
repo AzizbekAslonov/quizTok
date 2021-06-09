@@ -39,8 +39,9 @@ function btnHandler() {
       }
    })
 }
-btnHandler()
 
+// Set btn click
+btnHandler()
 
 function renderTextFields(inp) {
    const inputEl = DOMElement({
@@ -73,26 +74,6 @@ function renderTextFields(inp) {
    }
 
    scienceInputs.insertAdjacentElement('beforeend', inputContainer)
-}
-
-function setCheckboxes(checkboxes, inputContainer) {
-   const answersEl = DOMElement({ tag: 'div', classes: 'answers' })
-
-   let currentCheckboxIndex = 0;
-
-   function checkAndAdd(valueLen, index) {
-      if (valueLen > 0 && index < checkboxes.length) {
-         const { answerBlockEl, newCurrentCheckboxIndex } = createByOne(currentCheckboxIndex, checkboxes, checkAndAdd, inputContainer.dataset.index)
-         currentCheckboxIndex = newCurrentCheckboxIndex
-         answersEl.appendChild(answerBlockEl)
-      }
-   }
-
-   const { answerBlockEl, newCurrentCheckboxIndex } = createByOne(currentCheckboxIndex, checkboxes, checkAndAdd, inputContainer.dataset.index)
-   currentCheckboxIndex = newCurrentCheckboxIndex
-   answersEl.appendChild(answerBlockEl)
-
-   inputContainer.appendChild(answersEl)
 }
 
 function createByOne(currentCheckboxIndex, checkboxes, checkAndAdd, checkboxGroupIndex) {
@@ -128,31 +109,4 @@ function createByOne(currentCheckboxIndex, checkboxes, checkAndAdd, checkboxGrou
 
 
    return { answerBlockEl, newCurrentCheckboxIndex: currentCheckboxIndex }
-}
-
-
-function getAllInformation() {
-   const textForms = document.querySelector('form[data-index="none"]')
-   const textAndRadForms = document.querySelectorAll('form.questionContainer')
-
-   const data = {
-      name: textForms.scienceName.value,
-      questions: []
-   }
-
-   textAndRadForms.forEach(form => {
-      const formData = new FormData(form)
-      const myValues = {}
-
-      for (let [key, value] of formData.entries()) {
-         if (key.includes('answer_')) {
-            myValues["answer"] = value
-         } else {
-            myValues[key] = value
-         }
-      }
-
-      data.questions.push(myValues)
-   })
-   return data
 }
