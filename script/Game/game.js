@@ -10,9 +10,9 @@ if (realSciences.includes(localScience)) {
 
    a.startGame()
 }
-
 // Lichniy
 else {
+   // debugger
    const all_data = JSON.parse(localStorage.getItem('myScience') || '[]')
 
    if (localScience === all_data.name) {

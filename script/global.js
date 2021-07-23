@@ -39,7 +39,6 @@ function addClass(collection, classNames) {
 }
 
 function checkArrLength(arr = [], min, fn_success, fn_error) {
-   if (arr.length > min) {
-      fn_success()
-   } else fn_error()
+   if (arr.length > min) fn_success()
+   else fn_error()
 }

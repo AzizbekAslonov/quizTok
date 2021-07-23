@@ -17,7 +17,7 @@ class Questions {
          this.setClicksToChoices()
          this.setHelperProperties()
       } else {
-         alert('Error 404')
+         alert('Error 404, questions is not defined!')
       }
 
 

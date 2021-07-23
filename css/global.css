@@ -58,7 +58,6 @@ h2 {
     color: #fff;
 }
 
-
 .container {
     padding: 10px 17px;
     max-width: 1000px;
@@ -110,7 +109,7 @@ h2 {
     display: inline-block;
     align-items: center;
     font-size: 30px;
-    padding: 1.5rem 0;
+    padding: 1.6rem 0;
     width: 25rem;
     margin-bottom: 1rem;
     text-decoration: none;
@@ -121,6 +120,15 @@ h2 {
     color: #fff;
     background: linear-gradient(90deg, rgb(18, 92, 255) 0%, rgb(0, 102, 255) 100%);
 }
+
+.btn-info{
+    background: #0b354d;
+    color: #fff;
+ }
+
+ .btn-info:hover{
+    box-shadow: 0 0.4rem 1.4rem 0 #0a2d41;
+ }
 
 .btn-secondary{
     background: linear-gradient(90deg, rgb(255,247,9) 0%, rgb(240, 221,6) 100%);
